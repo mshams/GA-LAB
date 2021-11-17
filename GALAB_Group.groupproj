@@ -1,0 +1,60 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{B776240D-38F8-4141-BF84-AB9B69F9C16B}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\GA-PSP\GAPSP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\2007_2008\GA-TSP\V1.7 Multithread\GATSP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="GALAB.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="GAPSP">
+			<MSBuild Projects="..\GA-PSP\GAPSP.dproj"/>
+		</Target>
+		<Target Name="GAPSP:Clean">
+			<MSBuild Targets="Clean" Projects="..\GA-PSP\GAPSP.dproj"/>
+		</Target>
+		<Target Name="GAPSP:Make">
+			<MSBuild Targets="Make" Projects="..\GA-PSP\GAPSP.dproj"/>
+		</Target>
+		<Target Name="GATSP">
+			<MSBuild Projects="..\..\2007_2008\GA-TSP\V1.7 Multithread\GATSP.dproj"/>
+		</Target>
+		<Target Name="GATSP:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\2007_2008\GA-TSP\V1.7 Multithread\GATSP.dproj"/>
+		</Target>
+		<Target Name="GATSP:Make">
+			<MSBuild Targets="Make" Projects="..\..\2007_2008\GA-TSP\V1.7 Multithread\GATSP.dproj"/>
+		</Target>
+		<Target Name="GALAB">
+			<MSBuild Projects="GALAB.dproj"/>
+		</Target>
+		<Target Name="GALAB:Clean">
+			<MSBuild Targets="Clean" Projects="GALAB.dproj"/>
+		</Target>
+		<Target Name="GALAB:Make">
+			<MSBuild Targets="Make" Projects="GALAB.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="GAPSP;GATSP;GALAB"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="GAPSP:Clean;GATSP:Clean;GALAB:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="GAPSP:Make;GATSP:Make;GALAB:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
