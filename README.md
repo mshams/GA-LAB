@@ -1,5 +1,6 @@
 # GA-LAB
- Genetic Lab problem solver
+ Genetic Lab problem solver, coded in Embarcadero Delphi.
+ 
  Supported selection methods:
   - Roulette
   - Tournament Rnd
